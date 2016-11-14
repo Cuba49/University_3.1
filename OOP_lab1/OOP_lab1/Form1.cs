@@ -23,16 +23,37 @@ namespace OOP_lab1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int[] mas = new int[Convert.ToInt32(textBox1.Text)];
-
-            Random r = new Random();
-            for (int i = 0; i < mas.Length; i++)
+            try
             {
-                mas[i] = r.Next(Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
+                int[] mas = new int[Convert.ToInt32(textBox1.Text)];
+
+                Random r = new Random();
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    mas[i] = r.Next(Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
+                }
+                double sum = 0;
+                Form columnsAndRows = new Form2(mas);
+                columnsAndRows.Show();
+                if (mas.Length >= 1)
+                {
+                    for (int i = 0; i < mas.Length; i += 2)
+                    {
+                        sum += Math.Abs(mas[i]);
+                    }
+                textBox4.Text = (sum/Math.PI).ToString();
+                }
+                else
+                {
+                    textBox4.Text = "а масив то пустий :D";
+                }
             }
-            double sum = 0;
-            Form columnsAndRows = new Form2(mas);
-            columnsAndRows.Show();
+            catch (Exception)
+            {
+                MessageBox.Show("Некоректно введені вхідні параметри. Буда ласка, спробуйте ще раз");
+            }
+            
+
         }
     }
 }

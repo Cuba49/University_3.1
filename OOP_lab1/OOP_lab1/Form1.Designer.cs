@@ -123,9 +123,9 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(66, 230);
+            this.textBox4.Location = new System.Drawing.Point(55, 230);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(110, 20);
+            this.textBox4.Size = new System.Drawing.Size(129, 20);
             this.textBox4.TabIndex = 9;
             // 
             // button1
@@ -155,7 +155,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Калькулятор";
             this.ResumeLayout(false);
             this.PerformLayout();
 

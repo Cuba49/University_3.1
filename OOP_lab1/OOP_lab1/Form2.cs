@@ -19,6 +19,7 @@ namespace OOP_lab1
             for (int i = 0; i < mas.Length; i++)
             {
                 dataGridView1.Rows.Add();
+                dataGridView1[0, i].Value = mas[i];
             }
         }
     }
