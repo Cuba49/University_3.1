@@ -25,19 +25,13 @@ namespace OOP_lab2
             pictureBox1.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
             position = 1;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             isOn = false;
             button1.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = false;
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -46,7 +40,6 @@ namespace OOP_lab2
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +53,6 @@ namespace OOP_lab2
                 pictureBox1.Refresh();
                 isRotate = true;
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -92,7 +84,6 @@ namespace OOP_lab2
                 MessageBox.Show("Некоректно введено значение! Маса должна быть в пределах от 1 до 200 Кг.");
                 textBox5.Text = "";
             }
-            
         }
 
         void AddMass(int mass)
