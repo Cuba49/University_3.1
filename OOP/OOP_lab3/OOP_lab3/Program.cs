@@ -74,8 +74,10 @@ namespace OOP_lab3
                                 catch
                                 {
                                     Console.WriteLine("Некорректно введенные данные!");
+                                    Console.ReadLine();
                                 }
                                 Console.Write("Животное успешно добавлено в зоопарк!");
+                                Console.ReadLine();
                                 break;
 
                             }
@@ -94,8 +96,10 @@ namespace OOP_lab3
                                 catch
                                 {
                                     Console.WriteLine("Некорректно введенные данные!");
+                                    Console.ReadLine();
                                 }
                                 Console.Write("Животное успешно добавлено в зоопарк!");
+                                Console.ReadLine();
                                 break;
                             }
                             else
@@ -113,8 +117,10 @@ namespace OOP_lab3
                                 catch
                                 {
                                     Console.WriteLine("Некорректно введенные данные!");
+                                    Console.ReadLine();
                                 }
                                 Console.Write("Животное успешно добавлено в зоопарк!");
+                                Console.ReadLine();
                                 break;
 
                             }
@@ -124,16 +130,18 @@ namespace OOP_lab3
                         {
                             isDay = isDay == true ? false : true;
                             Console.WriteLine("Пора дня изменена успешно!");
+                            Console.ReadLine();
                             break;
                         }
                     case 4:
                         {
-                            ChoseAnimal();
+                            ChoiceAnimal();
                             break;
                         }
                     default:
                         {
                             Console.WriteLine("Некорректно введено число");
+                            Console.ReadLine();
                             break;
                         }
                 }
@@ -141,6 +149,7 @@ namespace OOP_lab3
             catch
             {
                 Console.WriteLine("Некорректно введено число");
+                Console.ReadLine();
                 Weiting();
             }
             Weiting();
@@ -157,36 +166,86 @@ namespace OOP_lab3
             Console.WriteLine("------------------------------------------------------------");
         }
 
-        void ChoseAnimal()
+        void ChoiceAnimal()
         {
-            Console.WriteLine("\n\n\n\n\nКакие вы хотите услышать звуки?\n1)Всех вместе\n2Определенного животного");
+            Console.WriteLine("\n\n\n\n\nКакие вы хотите услышать звуки?\n1)Всех вместе\n2)Определенного животного");
             try
             {
                 int i = int.Parse(Console.ReadLine());
                 switch (i)
                 {
                     case 1:
+                    {
+                        if (isDay == false)
                         {
-                            foreach (Animal animal in sd)
-                            {
-                                //animal.SetSuccessor(
-                                Console.WriteLine(animal.ToString());
-
-                            }
-                            break;
+                            Console.WriteLine("К сожалению, нельзя будить всех животных. Попробуйте днем или выберите кого-то одного");
+                            Console.ReadLine();
+                                break;
                         }
+                        for (int index = 0; index < sd.Count-1; index++)
+                        {
+                            sd[index].SetSuccessor(sd[index + 1]);
+
+                        }
+                            sd[0].Signal();
+                            break;
+                    }
+                    case 2:
+                    {
+                        ChoiceOneAnimal();
+                       
+
+                            break;
+                    }
+                    default:
+                    {
+                        Console.WriteLine("Некорректно введено число");
+                            Console.ReadLine();
+                            break;
+                    }
                 }
             }
             catch
             {
                 Console.WriteLine("Некорректно введено число");
-                ChoseAnimal();
+                Console.ReadLine();
+                ChoiceAnimal();
             }
 
         }
-        // абстрактный класс 
-        abstract class Animal
+
+        void ChoiceOneAnimal()
         {
+            Console.WriteLine("Выберите из перечисленных животных кого хотите услышать");
+            int z = 1;
+            foreach (Animal animal in sd)
+            {
+                Console.WriteLine("{1}){0}", animal.Name, z);
+                z++;
+            }
+            try
+            {
+                int r = int.Parse(Console.ReadLine());
+                sd[r - 1].Signal();
+
+            }
+            catch
+            {
+                Console.WriteLine("Некорректно введено число");
+                Console.ReadLine();
+                ChoiceOneAnimal();
+            }
+        }
+
+        // абстрактный класс 
+            abstract class Animal
+        {
+            protected Animal successor;
+
+            public void SetSuccessor(Animal successor)
+            {
+                this.successor = successor;
+            }
             public string Name { get; set; }
             public int Width { get; set; }
 
@@ -206,6 +265,10 @@ namespace OOP_lab3
 
             public override Vote Signal()
             {
+                if (successor != null)
+                {
+                    successor.Signal();
+                }
                 return new BearSignal();
             }
         }
@@ -217,6 +280,10 @@ namespace OOP_lab3
 
             public override Vote Signal()
             {
+                if (successor != null)
+                {
+                    successor.Signal();
+                }
                 return new GiraffeSignal();
             }
         }
@@ -228,6 +295,10 @@ namespace OOP_lab3
 
             public override Vote Signal()
             {
+                if (successor != null)
+                {
+                    successor.Signal();
+                }
                 return new WolfSignal();
             }
         }
