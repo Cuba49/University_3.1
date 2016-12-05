@@ -26,8 +26,11 @@ img{
 .right{
     float: right;
 }
-
+.black{
+	color:black;
+}
 .clear{
+	color:white;
     float: none;
     clear: both;
 }
@@ -52,8 +55,8 @@ img{
 }
 
 .profile-content {
-	color:white
-    background: #535353;
+	color:white;
+    
     padding: 15px;
 }
 
@@ -77,9 +80,7 @@ li:before{
     padding-right: 8px;
     color: #C8C4C8;
 }
-p{
-	color:black
-}
+
 
 table{
     margin-top: 15px;
