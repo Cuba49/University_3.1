@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_lab3.Abstract;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,48 +8,44 @@ using System.Threading.Tasks;
 
 namespace OOP_lab3
 {
-    class Bear : Animal
+    public class Bear : Animal
     {
-        public Bear()
+       
+        public int Number;
+
+        public Bear(string name, int width) : base(name, width)
         {
             
         }
-        public Bear(string name, int width) : base(name, width)
-        { }
 
         public override void Signal()
         {
-            if (successor != null)
-            {
-                successor.Signal();
-            }
-            Vote X = new BearSignal();
-            Console.WriteLine(X.GetVote());
+            Console.WriteLine("Медведь {0} издает звуки", name);
         }
 
-        private ArrayList children = new ArrayList();
-
-        public void Add(Animal animal)
+        public override int Display(int number, int depth)
         {
-            children.Add(animal);
+            Console.WriteLine("{2})" + new String('-', depth * 3) + "Имя:{0}, Вес:{1}", name, width, number);
+            Number = number;
+            number++;
+            return number;
         }
 
-        public override void Display(int depth)
+        public override int GetWidth()
         {
-            if (depth == 1)
-            {
-                Console.WriteLine(new String('-', depth) + "Медведи:");
-            }
-            else
-            {
-                Console.WriteLine(new String('-', depth) + "Имя: {0}, Вес: {1}", Name, Width);
-            }
-
-            foreach (Animal animal in children)
-            {
-                animal.Display(depth + 2);
-            }
+            return width;
         }
+
+        public override int GetCount()
+        {
+            return 1;
+        }
+        public override List<Component> Bust(List<Component> animal)
+        {
+            animal.Add(this);
+            return animal;
+        }
+
     }
 
 

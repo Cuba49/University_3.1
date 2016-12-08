@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_lab3.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +7,54 @@ using System.Threading.Tasks;
 
 namespace OOP_lab3
 {
-    abstract class Animal
+     public class Animal:Component
     {
-        public Animal()
-        {
-            
-        }
-        protected Animal successor;
 
-        public void SetSuccessor(Animal successor)
-        {
-            this.successor = successor;
-        }
-        public string Name { get; set; }
-        public int Width { get; set; }
+        
+        public int width { get; set; }
 
-        public Animal(string name, int width)
+       
+        //protected Animal successor;
+
+        //public void SetSuccessor(Animal successor)
+        //{
+        //    this.successor = successor;
+        //}
+
+        public override void Signal()
         {
-            Name = name;
-            Width = width;
+            throw new NotImplementedException();
+        }
+
+         
+
+        public override int Display(int number, int depth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetWidth()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Component> Bust(List<Component> animals)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Animal(string name, int width):base(name)
+        {
+           
+            this.width = width;
         }
         // фабричный метод
-        abstract public void Signal();
-        public abstract void Display(int depth);
+        
 
     }
 }

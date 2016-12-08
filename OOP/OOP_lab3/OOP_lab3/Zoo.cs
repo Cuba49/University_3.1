@@ -1,4 +1,6 @@
-﻿using OOP_lab3.Animals;
+﻿using OOP_lab3.Abstract;
+using OOP_lab3.Animals;
+using OOP_lab3.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +11,25 @@ namespace OOP_lab3
 {
     public class Zoo
     {
-        private All zoo;
-        private Giraffe giraffe = new Giraffe();
-        private Wolf wolf = new Wolf();
-        private Bear bear = new Bear();
+        
         bool isDay = true;
-        List<Animal> sd = new List<Animal>();
+       
 
+        public static Cage giraffes = new Cage("Вольер жирафов");
+        public static Cage wolfs = new Cage("Вольер волков");
+        public static Cage bears = new Cage("Вольер медведей");
+            Cage zoo = new Cage("Зоопарк");
         public Zoo()
         {
-            zoo = new All();
-            zoo.Add(giraffe);
-            zoo.Add(wolf);
-            zoo.Add(bear);
+            zoo.Add(giraffes);
+            zoo.Add(wolfs);
+            zoo.Add(bears);
             Animal wolf1 = new Wolf("Волк", 100);
-            wolf.Add(wolf1);
-            sd.Add(wolf1);
+            wolfs.Add(wolf1);
             Animal bear1 = new Bear("Медведь", 300);
-            bear.Add(bear1);
-            sd.Add(bear1);
+            bears.Add(bear1);
             Animal giraffe1 = new Giraffe("Жираф", 900);
-            giraffe.Add(giraffe1);
-            sd.Add(giraffe1);
+            giraffes.Add(giraffe1);
         }
 
         public void Weiting()
@@ -92,96 +91,17 @@ namespace OOP_lab3
         }
         void AddAnimal()
         {
-            Random r = new Random();
-            int random = r.Next(1, 100);
-            if (random < 21)
-            {
-                HaveGiraffe();
-            }
-            if (random < 61)
-            {
-                HaveVolf();
-            }
-            else
-            {
-                HaveBear();
-            }
+            Create r = new Create(giraffes, bears, wolfs);
         }
 
-        void HaveBear()
-        {
-            Console.WriteLine("Вам выпал медведь!");
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
-            try
-            {
-                int width = int.Parse(Console.ReadLine());
-                bear.Add(new Bear(name, width));
-                sd.Add(new Bear(name, width));
-            Console.Write("Животное успешно добавлено в зоопарк!");
-            Console.ReadLine();
-                
-            }
-            catch
-            {
-                Console.WriteLine("Некорректно введенные данные!");
-                Console.ReadLine();
-            }
-        }
-
-        void HaveVolf()
-        {
-            Console.WriteLine("Вам выпал волк!");
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
-            try
-            {
-                int width = int.Parse(Console.ReadLine());
-                wolf.Add(new Wolf(name, width));
-                sd.Add(new Wolf(name, width));
-            Console.Write("Животное успешно добавлено в зоопарк!");
-            Console.ReadLine();
-
-            }
-            catch
-            {
-                Console.WriteLine("Некорректно введенные данные!");
-                Console.ReadLine();
-            }
-        }
-
-        void HaveGiraffe()
-        {
-            Console.WriteLine("Вам выпал жираф!");
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
-            try
-            {
-                int width = int.Parse(Console.ReadLine());
-                giraffe.Add(new Giraffe(name, width));
-                sd.Add(new Giraffe(name, width));
-            Console.Write("Животное успешно добавлено в зоопарк!");
-            Console.ReadLine();
-
-            }
-            catch
-            {
-                Console.WriteLine("Некорректно введенные данные!");
-                Console.ReadLine();
-            }
-        }
+        
 
         void WeightAnimals()
         {
-            int sum = 0;
-            foreach (Animal animal in sd)
-            {
-                sum += animal.Width;
-            }
-            Console.WriteLine("Общий вес животных:{0}, средний вес одного животного:{1}", sum, sum / sd.Count);
+            int width = zoo.GetWidth();
+            int count = zoo.GetCount();
+           
+            Console.WriteLine("Общий вес животных:{0}, средний вес одного животного:{1}", width, width / count);
             Console.ReadKey();
         }
 
@@ -190,7 +110,7 @@ namespace OOP_lab3
             Console.WriteLine("\n\n\n------------------------------------------------------------");
             Console.WriteLine("Пора дня:{0}", isDay == true ? "День" : "Ночь");
            
-            zoo.Display(1);
+            zoo.Display(1, 0);
             Console.WriteLine("------------------------------------------------------------");
         }
 
@@ -239,31 +159,19 @@ namespace OOP_lab3
                 Console.ReadLine();
                 
             }
-            for (int index = 0; index < sd.Count - 1; index++)
-            {
-                sd[index].SetSuccessor(sd[index + 1]);
-
-            }
-            sd[0].Signal();
-            for (int index = 0; index < sd.Count - 1; index++)
-            {
-                sd[index].SetSuccessor(null);
-
-            }
+            zoo.Signal();          
         }
         void ChoiceOneAnimal()
         {
             Console.WriteLine("Выберите из перечисленных животных кого хотите услышать");
             int z = 1;
-            foreach (Animal animal in sd)
-            {
-                Console.WriteLine("{1}){0}", animal.Name, z);
-                z++;
-            }
+            zoo.Display(1, 0);
             try
             {
                 int r = int.Parse(Console.ReadLine());
-                sd[r - 1].Signal();
+                List<Component> list = new List<Component>();
+                list=zoo.Bust(list);
+                list[r - 1].Signal();
 
             }
             catch

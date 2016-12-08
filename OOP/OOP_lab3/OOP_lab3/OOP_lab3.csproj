@@ -44,16 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\Animal.cs" />
-    <Compile Include="Animals\All.cs" />
+    <Compile Include="Abstract\Component.cs" />
     <Compile Include="Animals\Bear.cs" />
-    <Compile Include="Signals\BearSignal.cs" />
+    <Compile Include="Animals\Cage.cs" />
     <Compile Include="Animals\Giraffe.cs" />
-    <Compile Include="Signals\GiraffeSignal.cs" />
+    <Compile Include="Factory\Create.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Abstract\Vote.cs" />
     <Compile Include="Animals\Wolf.cs" />
-    <Compile Include="Signals\WolfSignal.cs" />
     <Compile Include="Zoo.cs" />
   </ItemGroup>
   <ItemGroup>
