@@ -91,7 +91,7 @@ namespace OOP_lab3
         }
         void AddAnimal()
         {
-            Create r = new Create(giraffes, bears, wolfs);
+            Create r = new Create(zoo);
         }
 
         

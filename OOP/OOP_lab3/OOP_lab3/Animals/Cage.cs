@@ -9,9 +9,11 @@ namespace OOP_lab3.Animals
 {
     public class Cage : Component
     {
+        public string name ;
+
         public Cage(string name):base(name)
         {
-            
+            this.name = name;
         }
         List<Component> childrens = new List<Component>(); 
         public override int Display(int number, int depth)
@@ -80,6 +82,61 @@ namespace OOP_lab3.Animals
                 }
             }
             return animal;
+        }
+
+        public override List<Cage> NumberCage(Animal animal, List<Cage> cages)
+        {
+            if (childrens == null)
+            {
+                if (!cages.Contains(this))
+                {
+                    cages.Add(this);
+                }
+            }
+            if (childrens != null)
+            {
+                foreach (Component children in childrens)
+                {
+
+                    if (children.GetType() == this.GetType())
+                    {
+                        if (cages.Count != (children.NumberCage(animal, cages)).Count) ;
+                        cages = children.NumberCage(animal, cages);
+                        if (cages.Contains(this))
+                        {
+
+                        }
+                        else
+                        {
+                            cages.Add(this);
+                        }
+
+                    }
+                    
+                    else
+                    if (children.GetType() == animal.GetType())
+                    {
+                        if (cages == null)
+                        {
+                            cages.Add(this);
+                        }
+                        if (cages.Contains(this))
+                        {
+
+                        }
+                        else
+                        {
+                            cages.Add(this);
+                        }
+
+
+
+                    }
+
+                }
+                
+            }
+            return cages;
         }
     }
 }

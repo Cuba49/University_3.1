@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOP_lab3.Animals;
 
 namespace OOP_lab3
 {
@@ -44,6 +45,11 @@ namespace OOP_lab3
         }
 
         public override List<Component> Bust(List<Component> animals)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<Cage> NumberCage(Animal animal, List<Cage> cages)
         {
             throw new NotImplementedException();
         }

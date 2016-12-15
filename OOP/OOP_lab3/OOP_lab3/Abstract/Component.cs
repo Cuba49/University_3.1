@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_lab3.Animals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace OOP_lab3.Abstract
         public abstract int GetWidth();
         public abstract int GetCount();
         public abstract List<Component> Bust(List<Component> animal);
+        public abstract List<Cage> NumberCage(Animal animal, List<Cage> cages);
 
 
 

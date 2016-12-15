@@ -9,29 +9,27 @@ namespace OOP_lab3.Factory
 {
     class Create
     {
-        public Create(Cage giraffes, Cage bears, Cage wolfs)
-        {
-            CreateAnimal(giraffes, bears, wolfs);
-        }
-
-        public void CreateAnimal(Cage giraffes, Cage bears, Cage wolfs)
+        List<Cage> cages = new List<Cage>();
+        public Create(Cage zoo)
         {
             Random r = new Random();
             int random = r.Next(1, 5);
             if (random == 3)
             {
-                HaveGiraffe(giraffes);
+                HaveGiraffe(zoo);
             }
-            if (random < 3)
+            
+            else if (random < 3)
             {
-                 HaveVolf(wolfs);
+                HaveVolf(zoo);
             }
             else
             {
-                HaveBear(bears);
+                HaveBear(zoo);
             }
         }
-        void HaveBear(Cage bears)
+
+        void HaveBear(Cage zoo)
         {
             Console.WriteLine("Вам выпал медведь!");
             Console.Write("Введите имя:");
@@ -40,7 +38,16 @@ namespace OOP_lab3.Factory
             try
             {
                 int width = int.Parse(Console.ReadLine());
-                bears.Add(new Bear(name, width));
+                Bear bear = new Bear(name, width);
+                cages = zoo.NumberCage(bear, cages);
+                int i = 1;
+                Console.WriteLine("Куда хотите его поместить?");
+                foreach (Cage cage in cages)
+                {
+                    Console.WriteLine("{0}){1}", i, cage.name);
+                }
+                int number = int.Parse(Console.ReadLine());
+                cages[number - 1].Add(bear);
                 Console.Write("Животное успешно добавлено в зоопарк!");
                 Console.ReadLine();
             }
@@ -51,16 +58,26 @@ namespace OOP_lab3.Factory
             }
         }
 
-        void HaveVolf(Cage wolfs)
+        void HaveVolf(Cage zoo)
         {
             Console.WriteLine("Вам выпал волк!");
+            
             Console.Write("Введите имя:");
             string name = Console.ReadLine();
             Console.Write("Введите вес:");
             try
             {
                 int width = int.Parse(Console.ReadLine());
-                wolfs.Add(new Wolf(name, width));
+                Wolf wolf = new Wolf(name, width);
+                cages = zoo.NumberCage(wolf, cages);
+                int i = 1;
+                Console.WriteLine("Куда хотите его поместить?");
+                foreach (Cage cage in cages)
+                {
+                    Console.WriteLine("{0}){1}", i, cage.name);
+                }
+                int number = int.Parse(Console.ReadLine());
+                cages[number - 1].Add(wolf);
                 Console.Write("Животное успешно добавлено в зоопарк!");
                 Console.ReadLine();
 
@@ -72,16 +89,26 @@ namespace OOP_lab3.Factory
             }
         }
 
-        void HaveGiraffe(Cage giraffes)
+        void HaveGiraffe(Cage zoo)
         {
             Console.WriteLine("Вам выпал жираф!");
+            
             Console.Write("Введите имя:");
             string name = Console.ReadLine();
             Console.Write("Введите вес:");
             try
             {
                 int width = int.Parse(Console.ReadLine());
-                giraffes.Add(new Giraffe(name, width));
+                Giraffe giraffe = new Giraffe(name, width);
+                cages = zoo.NumberCage(giraffe, cages);
+                int i = 1;
+                Console.WriteLine("Куда хотите его поместить?");
+                foreach (Cage cage in cages)
+                {
+                    Console.WriteLine("{0}){1}",i,cage.name);
+                }
+                int number = int.Parse(Console.ReadLine());
+                cages[number-1].Add(giraffe);
                 Console.Write("Животное успешно добавлено в зоопарк!");
                 Console.ReadLine();
 
@@ -91,6 +118,11 @@ namespace OOP_lab3.Factory
                 Console.WriteLine("Некорректно введенные данные!");
                 Console.ReadLine();
             }
+        }
+
+        void NumberCage(Cage zoo, Animal animal)
+        {
+            cages=zoo.NumberCage(animal, cages);
         }
     }
 }
