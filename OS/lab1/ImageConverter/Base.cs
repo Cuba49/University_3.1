@@ -72,7 +72,8 @@ namespace ImageFilter
             outputImage.Save("output.bmp", ImageFormat.Bmp);
             Console.Clear();
             Console.WriteLine("На обработку затрачено {0} (мс)\n",filter.Time.ElapsedMilliseconds);
-           
+            Console.ReadKey();
+
         }
     }
 }

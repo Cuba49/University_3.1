@@ -81,13 +81,12 @@ namespace ImageFilter.Core
                     for (int y = 0; y < bitmapPart.Height; y++)
                     {
                         Color pixel = bitmapPart.GetPixel(x, y);
-
                         
                         bitmapPart.SetPixel(x, y, Color.FromArgb(
-                            pixel.A,
-                            Math.Truncate(((pixel.R - 128) * 0.9) + 128),
-                           (pixel.G - 128) * 0.9 + 128,
-                            (pixel.B - 128) * 0.9 + 128));
+                            pixel.A, 
+                            Convert.ToInt32(Math.Truncate(((pixel.R - 128) * 0.1) + 128)),
+                            Convert.ToInt32(Math.Truncate(((pixel.G - 128) * 0.1) + 128)),
+                            Convert.ToInt32(Math.Truncate(((pixel.B - 128) * 0.1) + 128))));
                     }
                 }
             });

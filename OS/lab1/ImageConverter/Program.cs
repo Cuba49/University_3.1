@@ -7,7 +7,6 @@ namespace ImageFilter
         public static void Main(string[] args)
         {
             Base.Waiting();      
-            Console.ReadKey(false);
         }
     }
 }
