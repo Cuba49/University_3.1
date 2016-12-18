@@ -8,6 +8,5 @@ namespace ImageFilter.Core.Interfaces
         Stopwatch Time { get; }
         int TasksCount { get; }
         Bitmap SetFilter(Bitmap target);
-
     }
 }
