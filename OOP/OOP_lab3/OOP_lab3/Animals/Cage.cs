@@ -95,46 +95,28 @@ namespace OOP_lab3.Animals
             }
             if (childrens != null)
             {
+
+                bool isCan = true;
                 foreach (Component children in childrens)
                 {
-
                     if (children.GetType() == this.GetType())
                     {
                         if (cages.Count != (children.NumberCage(animal, cages)).Count) ;
                         cages = children.NumberCage(animal, cages);
-                        if (cages.Contains(this))
-                        {
-
-                        }
-                        else
-                        {
-                            cages.Add(this);
-                        }
-
-                    }
+                       }
                     
                     else
-                    if (children.GetType() == animal.GetType())
+                    if (!(children.GetType() == animal.GetType()))
                     {
-                        if (cages == null)
-                        {
-                            cages.Add(this);
-                        }
-                        if (cages.Contains(this))
-                        {
-
-                        }
-                        else
-                        {
-                            cages.Add(this);
-                        }
-
-
-
+                        isCan = false;
                     }
+                    }
+                if (isCan&&!cages.Contains(this))
+                {
+                    cages.Add(this);
 
                 }
-                
+
             }
             return cages;
         }

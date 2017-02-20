@@ -9,6 +9,9 @@ namespace OOP_lab3.Factory
 {
     class Create
     {
+        private string name;
+        private int width;
+        private Animal thisAnimal;
         List<Cage> cages = new List<Cage>();
         public Create(Cage zoo)
         {
@@ -32,24 +35,11 @@ namespace OOP_lab3.Factory
         void HaveBear(Cage zoo)
         {
             Console.WriteLine("Вам выпал медведь!");
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
+            ForAll();
             try
             {
-                int width = int.Parse(Console.ReadLine());
-                Bear bear = new Bear(name, width);
-                cages = zoo.NumberCage(bear, cages);
-                int i = 1;
-                Console.WriteLine("Куда хотите его поместить?");
-                foreach (Cage cage in cages)
-                {
-                    Console.WriteLine("{0}){1}", i, cage.name);
-                }
-                int number = int.Parse(Console.ReadLine());
-                cages[number - 1].Add(bear);
-                Console.Write("Животное успешно добавлено в зоопарк!");
-                Console.ReadLine();
+                thisAnimal = new Bear(name, width);
+                Add(zoo);
             }
             catch
             {
@@ -61,26 +51,12 @@ namespace OOP_lab3.Factory
         void HaveVolf(Cage zoo)
         {
             Console.WriteLine("Вам выпал волк!");
-            
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
+
+            ForAll();
             try
             {
-                int width = int.Parse(Console.ReadLine());
-                Wolf wolf = new Wolf(name, width);
-                cages = zoo.NumberCage(wolf, cages);
-                int i = 1;
-                Console.WriteLine("Куда хотите его поместить?");
-                foreach (Cage cage in cages)
-                {
-                    Console.WriteLine("{0}){1}", i, cage.name);
-                }
-                int number = int.Parse(Console.ReadLine());
-                cages[number - 1].Add(wolf);
-                Console.Write("Животное успешно добавлено в зоопарк!");
-                Console.ReadLine();
-
+                thisAnimal = new Wolf(name, width);
+                Add(zoo);
             }
             catch
             {
@@ -92,26 +68,11 @@ namespace OOP_lab3.Factory
         void HaveGiraffe(Cage zoo)
         {
             Console.WriteLine("Вам выпал жираф!");
-            
-            Console.Write("Введите имя:");
-            string name = Console.ReadLine();
-            Console.Write("Введите вес:");
+            ForAll();
             try
             {
-                int width = int.Parse(Console.ReadLine());
-                Giraffe giraffe = new Giraffe(name, width);
-                cages = zoo.NumberCage(giraffe, cages);
-                int i = 1;
-                Console.WriteLine("Куда хотите его поместить?");
-                foreach (Cage cage in cages)
-                {
-                    Console.WriteLine("{0}){1}",i,cage.name);
-                }
-                int number = int.Parse(Console.ReadLine());
-                cages[number-1].Add(giraffe);
-                Console.Write("Животное успешно добавлено в зоопарк!");
-                Console.ReadLine();
-
+                thisAnimal = new Giraffe(name, width);
+                Add(zoo);
             }
             catch
             {
@@ -120,6 +81,37 @@ namespace OOP_lab3.Factory
             }
         }
 
+        void ForAll()
+        {
+            Console.Write("Введите имя:");
+            name = Console.ReadLine();
+            Console.Write("Введите вес:");
+            width = int.Parse(Console.ReadLine());
+        }
+
+        void Add(Cage zoo)
+        {
+            try
+            {
+                cages = zoo.NumberCage(thisAnimal, cages);
+                int i = 1;
+                Console.WriteLine("Куда хотите его поместить?");
+                foreach (Cage cage in cages)
+                {
+                    Console.WriteLine("{0}){1}", i, cage.name);
+                    i++;
+                }
+                int number = int.Parse(Console.ReadLine());
+                cages[number - 1].Add(thisAnimal);
+                Console.Write("Животное успешно добавлено в зоопарк!");
+                Console.ReadLine();
+            }
+            catch
+            {
+                Console.WriteLine("Некорректно введенные данные!");
+                Console.ReadLine();
+            }
+        }
         void NumberCage(Cage zoo, Animal animal)
         {
             cages=zoo.NumberCage(animal, cages);
