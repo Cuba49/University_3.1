@@ -1,0 +1,48 @@
+.border-container{
+ border:1px solid red;
+}
+*ЦВЕТ И ОТСТУП СНИЗУ ДЛЯ БЛОКОВ*/
+.head-block,.top-menu,.top-material,.left-sidebar,.content{
+ background:#ccc;
+ margin-bottom:1px;
+}/*ВЫСОТА ШАПКИ*/
+.head-block{
+ height:150px;
+}/*ВЫСОТА МЕНЮ*/
+.top-menu{
+ height:30px;
+}/*ВЫСОТА БЛОКА ВАЖНЫЕ МАТЕРИАЛЫ*/
+.top-material{
+ height:200px;
+}/*ВЫСОТА САЙДБАРА И БЛОКА КОНТЕНТ*/
+.left-sidebar,.content{
+ height:300px;
+}/*ГРАНИЦА У КОНТЕНТА*/
+.content{
+ border-left:1px solid #fff;
+}
+.head-block{
+height:150px;
+background:url(../images/head.jpg)left center no-repeat;
+}
+.top-menu{
+	align:center;
+ background:#daf2fe; }
+.top-menu ul{
+ padding-left:0;
+ margin-bottom:0;}
+.top-menu li{
+ display:inline-block;
+ margin-left:10px;
+ padding:3px 10px;}
+ .back-head{
+	 background:black;
+ }
+ .logo img{
+	 width:auto;
+	 height:auto;
+ }
+ h1, h2{
+	 font-family: 'Lobster', cursive;
+	 
+ }
