@@ -1,0 +1,42 @@
+*{
+  font: 18px Arial, sans-serif;
+}
+
+.wrapper{
+  margin-top: 15px;
+}
+
+#workfield{
+  display: block;
+  margin: auto;
+  cursor: default;
+  border: 1px solid #000;
+}
+
+.tools{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  display: block;
+  height: 40px;
+  width: 370px;
+}
+
+.tools input,
+.tools input[type="radio"]{
+  float: left;
+  margin-top: 0px;
+  margin-right: 15px;
+  display: block;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+
+}
+.tools input:last-child{
+  margin-right: 0;
+}
+.left{
+    margin-left: 10px;
+}

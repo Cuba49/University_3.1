@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="workfiled-wrapper">
+          <canvas id="workfield" width="1200" height="600"></canvas>
+        </div>
+      </div>
+    
+    
+      <div class="col-md-1 left">
+        <div class="tools-panel "> 
+        <div class="tools">
+            <div class="row">
+                <div class="col-md-2"><input type="radio" title="Pencil" name="tool" value="pencil" checked></div>
+                <div class="col-md-10"><img src="images/_318-61004.jpg" height="30" width="auto"></div>
+            </div>
+                
+            <div class="row">
+            <div class="col-md-2"><input type="radio" title="Line" name="tool" value="line"></div>
+                <div class="col-md-10"><img src="images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA.PNG" height="30" width="auto"></div>
+            </div>
+            <div class="row">
+            <div class="col-md-2"><input type="radio" title="Rectangle" name="tool" value="rectangle"></div>
+                <div class="col-md-10"><img src="images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA2.PNG" height="30" width="auto"></div>
+            </div>
+                <div class="row">
+            <div class="col-md-2"><input type="radio" title="Circle" name="tool" value="circle"></div>
+                <div class="col-md-10"><img src="images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA3.PNG" height="30" width="auto"></div>
+                </div>
+            
+                    <div class="row">
+            <div class="col-md-2"><input type="radio" title="Eraser" name="tool" value="eraser"></div>
+                        <div class="col-md-10"><img src="images/instrument_lastik_v_fotoshope.jpg" height="30" width="auto"></div></div>
+            
+           
+            <div class="row">
+            <div class="col-md-2"><input type="color" title="Stroke color" id="stroke-color"></div>
+            <div class="col-md-2"><input type="number" title="Thickness" id="tool-thickness" min="1" max="100" value="1"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
