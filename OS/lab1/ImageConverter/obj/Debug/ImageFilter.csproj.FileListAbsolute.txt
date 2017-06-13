@@ -1,0 +1,6 @@
+D:\GitUniversity\OS\lab1\ImageConverter\bin\Debug\ImageConverter.exe.config
+D:\GitUniversity\OS\lab1\ImageConverter\bin\Debug\ImageConverter.exe
+D:\GitUniversity\OS\lab1\ImageConverter\bin\Debug\ImageConverter.pdb
+D:\GitUniversity\OS\lab1\ImageConverter\obj\Debug\ImageFilter.csprojResolveAssemblyReference.cache
+D:\GitUniversity\OS\lab1\ImageConverter\obj\Debug\ImageConverter.exe
+D:\GitUniversity\OS\lab1\ImageConverter\obj\Debug\ImageConverter.pdb
