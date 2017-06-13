@@ -1,0 +1,8 @@
+D:\GitUniversity\OOP_lab2\OOP_lab2\bin\Release\OOP_lab2.exe.config
+D:\GitUniversity\OOP_lab2\OOP_lab2\bin\Release\OOP_lab2.exe
+D:\GitUniversity\OOP_lab2\OOP_lab2\bin\Release\OOP_lab2.pdb
+D:\GitUniversity\OOP_lab2\OOP_lab2\obj\Release\OOP_lab2.Form1.resources
+D:\GitUniversity\OOP_lab2\OOP_lab2\obj\Release\OOP_lab2.Properties.Resources.resources
+D:\GitUniversity\OOP_lab2\OOP_lab2\obj\Release\OOP_lab2.csproj.GenerateResource.Cache
+D:\GitUniversity\OOP_lab2\OOP_lab2\obj\Release\OOP_lab2.exe
+D:\GitUniversity\OOP_lab2\OOP_lab2\obj\Release\OOP_lab2.pdb
