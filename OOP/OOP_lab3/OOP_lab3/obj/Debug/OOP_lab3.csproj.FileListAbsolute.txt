@@ -1,0 +1,6 @@
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\bin\Debug\OOP_lab3.exe.config
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\bin\Debug\OOP_lab3.exe
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\bin\Debug\OOP_lab3.pdb
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\obj\Debug\OOP_lab3.csprojResolveAssemblyReference.cache
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\obj\Debug\OOP_lab3.exe
+D:\GitUniversity\OOP\OOP_lab3\OOP_lab3\obj\Debug\OOP_lab3.pdb
